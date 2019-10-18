@@ -12,8 +12,8 @@ from sklearn.preprocessing import StandardScaler
 
 
 df_z = wrangle_z.wrangle_zillow()
-X = df_z.drop(columns=['propertylandusedesc'])
-y = pd.DataFrame(df_z.taxvaluedollarcnt)
+X = df_z.drop(columns=['Property Description'])
+y = pd.DataFrame(df_z['Tax Appraised Value'])
 
 #1. split_my_data(X, y)
 def split_my_data(X,y):

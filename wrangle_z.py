@@ -30,13 +30,13 @@ url = f'mysql+pymysql://{user}:{password}@{host}/zillow'
 
 def wrangle_zillow():
     zillow_data = pd.read_sql('''SELECT 
-	propertylandusedesc,
-    bathroomcnt,
-    bedroomcnt,
-    calculatedfinishedsquarefeet,
-    taxvaluedollarcnt,
-    taxamount,
-    fips
+	propertylandusedesc AS 'Property Description',
+    bathroomcnt AS 'Number of Bathrooms',
+    bedroomcnt AS 'Number of Bedrooms',
+    calculatedfinishedsquarefeet AS 'Square Feet',
+    taxvaluedollarcnt AS 'Tax Appraised Value',
+    taxamount AS 'Assessed Tax',
+    fips AS 'County Number'
 FROM propertylandusetype AS plut
 	JOIN properties_2017 AS prop17
 		ON plut.propertylandusetypeid = prop17.propertylandusetypeid
